@@ -1,70 +1,190 @@
-# Getting Started with Create React App
+# SAS & watsonx Partnership Showcase
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive web application built with React and IBM Carbon Design System that highlights the strategic partnership between SAS and IBM watsonx.
 
-## Available Scripts
+## 🎯 Overview
 
-In the project directory, you can run:
+This application showcases how IBM watsonx's AI and data platform aligns with SAS's strategic initiatives for 2025-2027, including:
 
-### `npm start`
+- **Scaling data & AI workloads** with watsonx.data
+- **Democratizing AI** through watsonx.ai
+- **Strengthening compliance** via watsonx.governance
+- **Accelerating talent development** with watsonx Orchestrate
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Hero Section**: Eye-catching introduction with gradient background
+- **SAS Overview**: Comprehensive look at SAS's market position and capabilities
+- **Strategic Initiatives**: Four key focus areas for SAS's future
+- **watsonx Portfolio**: Detailed breakdown of each watsonx component:
+  - watsonx.ai (AI Studio)
+  - watsonx.data (Hybrid Lakehouse)
+  - watsonx Orchestrate (Low-Code Agent Platform)
+  - watsonx.governance (AI Governance)
+- **Solution Mapping**: Direct alignment between SAS needs and watsonx capabilities
+- **Engagement Path**: Proposed next steps for partnership
+- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
+- **Dark Theme**: IBM Carbon Design System G100 theme for professional appearance
 
-### `npm test`
+## 🛠️ Technologies Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **React 18**: Modern JavaScript framework
+- **IBM Carbon Design System**: Enterprise-grade UI components
+- **Carbon Icons**: Professional iconography
+- **SCSS**: Advanced styling with Carbon themes
+- **Responsive Grid**: Carbon's flexible grid system
 
-### `npm run build`
+## 📋 Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js (v14 or higher)
+- npm (v6 or higher)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🔧 Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Navigate to the project directory:
+```bash
+cd sas-watsonx-showcase
+```
 
-### `npm run eject`
+2. Install dependencies:
+```bash
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🏃 Running the Application
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Development Mode
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Start the development server:
+```bash
+npm start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The application will open automatically in your browser at [http://localhost:3000](http://localhost:3000)
 
-## Learn More
+### Production Build
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Create an optimized production build:
+```bash
+npm run build
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The build files will be in the `build/` directory.
 
-### Code Splitting
+### Testing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Run the test suite:
+```bash
+npm test
+```
 
-### Analyzing the Bundle Size
+## 📁 Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+sas-watsonx-showcase/
+├── public/
+│   ├── index.html
+│   └── ...
+├── src/
+│   ├── App.js          # Main application component
+│   ├── App.scss        # Application styles
+│   ├── index.js        # Entry point
+│   ├── index.css       # Global styles
+│   └── ...
+├── package.json
+└── README.md
+```
 
-### Making a Progressive Web App
+## 🎨 Key Components
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Navigation
+- Sticky header with navigation links
+- Smooth scrolling to sections
+- IBM branding
 
-### Advanced Configuration
+### Sections
+1. **Hero**: Title, subtitle, and key tags
+2. **SAS Overview**: Company background and platform capabilities
+3. **Strategic Initiatives**: Four priority areas with icons
+4. **watsonx Portfolio**: Detailed product information
+5. **Solution Mapping**: Table showing initiative-to-solution alignment
+6. **Next Steps**: Four-phase engagement path
+7. **Footer**: Copyright and trademark information
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🎨 Customization
 
-### Deployment
+### Changing Colors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Edit `src/App.scss` to modify the color scheme:
+```scss
+// Hero gradient
+background: linear-gradient(135deg, #0f62fe 0%, #8a3ffc 100%);
 
-### `npm run build` fails to minify
+// Icon colors
+.blue { color: #0f62fe; }
+.purple { color: #8a3ffc; }
+.green { color: #24a148; }
+.teal { color: #009d9a; }
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Modifying Content
+
+Edit `src/App.js` to update text, add sections, or modify layout.
+
+### Changing Theme
+
+To switch to a different Carbon theme, edit `src/App.scss`:
+```scss
+@use '@carbon/react/scss/theme' with (
+  $theme: themes.$white  // or themes.$g10, themes.$g90, themes.$g100
+);
+```
+
+## 📱 Responsive Breakpoints
+
+- **Small (sm)**: < 672px (Mobile)
+- **Medium (md)**: 672px - 1056px (Tablet)
+- **Large (lg)**: > 1056px (Desktop)
+
+## 🌐 Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## 📝 Content Sources
+
+All content is based on the SAS & watsonx partnership presentation materials, including:
+- SAS company overview and market position
+- Strategic initiatives for 2025-2027
+- IBM watsonx product capabilities
+- Solution mapping and engagement recommendations
+
+## 🤝 Contributing
+
+To contribute to this project:
+
+1. Make your changes
+2. Test thoroughly
+3. Ensure responsive design works
+4. Update documentation if needed
+
+## 📄 License
+
+This project is created for demonstration purposes.
+
+## 🔗 Resources
+
+- [IBM Carbon Design System](https://carbondesignsystem.com/)
+- [React Documentation](https://react.dev/)
+- [IBM watsonx](https://www.ibm.com/watsonx)
+- [SAS](https://www.sas.com/)
+
+## 📞 Support
+
+For questions or issues, please contact the IBM consulting team.
+
+---
+
+**Built with ❤️ using IBM Carbon Design System**
