@@ -1171,24 +1171,31 @@ section {
 // Smooth Scrolling
 html {
   scroll-behavior: smooth;
+  overflow: overlay; // Scrollbar only appears when scrolling
 }
 
-// Custom Scrollbar
+// Custom Scrollbar - Rectangular style
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f4f4f4;
+  background: transparent; // Transparent track for overlay effect
 }
 
 ::-webkit-scrollbar-thumb {
   background: #0f62fe;
-  border-radius: 5px;
+  border-radius: 0; // Rectangular shape (no rounding)
   
   &:hover {
     background: #0043ce;
   }
+}
+
+// For Firefox
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #0f62fe transparent;
 }
 
 // Made with Bob
