@@ -442,14 +442,51 @@ section {
   }
   
   .tabs-container {
-    // No extra padding or margin - tabs align with heading
+    // Extend tabs container edge-to-edge by breaking out of section-container padding
     background: var(--cds-background, #ffffff);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    margin: 0 -32px; // Negative margin to extend beyond section-container
+    
+    @include breakpoint-down(md) {
+      margin: 0 -16px; // Match mobile section-container padding
+    }
   }
   
   .cds--tabs {
-    // Remove any default margins
+    // Remove any default margins and padding
     margin: 0;
+    padding: 0;
+  }
+  
+  // FIX: Make tabs span full width
+  .cds--tabs__nav {
+    display: flex;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .cds--tabs__nav-item {
+    flex: 1 1 auto; // Allow tabs to grow and shrink based on content
+    min-width: 0; // Allow flex items to shrink below content size
+    text-align: center;
+    
+    .cds--tabs__nav-link {
+      width: 100%;
+      justify-content: center;
+      white-space: normal; // Allow text to wrap if needed
+      padding: 12px 16px; // Adequate padding for readability
+      line-height: 1.4; // Better line height for wrapped text
+      min-height: 48px; // Ensure consistent height
+      display: flex;
+      align-items: center;
+      
+      @include breakpoint-down(md) {
+        padding: 10px 12px; // Slightly less padding on mobile
+        font-size: 0.875rem; // Smaller font on mobile if needed
+      }
+    }
   }
   
   .cds--tab-content {
@@ -502,26 +539,31 @@ section {
   }
   
   // Uses global .page-container
-  .cds--grid {
-    row-gap: $spacing-07; // 32px
-    column-gap: $spacing-07; // 32px
-    
-    @include breakpoint-down(md) {
-      row-gap: $spacing-06; // 24px
-      column-gap: $spacing-06; // 24px
-    }
-  }
   
   .section-heading {
     margin-bottom: 48px;
   }
   
+  // CSS Grid container for 2x2 layout with equal spacing
+  .watsonx-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px; // Equal spacing for both rows and columns
+    
+    @include breakpoint-down(md) {
+      grid-template-columns: 1fr; // Single column on mobile
+      gap: 24px;
+    }
+  }
+  
   .watsonx-card {
-    padding: 32px;
+    padding: 24px; // Consistent internal padding
     background: #262626;
     border: 1px solid #393939;
     border-radius: 4px;
-    height: 100%;
+    height: 100%; // Equal height cards
+    display: flex;
+    flex-direction: column;
     transition: all 0.3s ease;
     
     &:hover {
@@ -533,6 +575,7 @@ section {
     .watsonx-icon {
       color: #78a9ff;
       margin-bottom: 24px;
+      flex-shrink: 0;
     }
     
     h3 {
@@ -540,6 +583,7 @@ section {
       font-weight: 400;
       margin-bottom: 16px;
       color: #f4f4f4;
+      flex-shrink: 0;
     }
     
     p {
@@ -547,6 +591,7 @@ section {
       line-height: 1.7;
       color: #c6c6c6;
       margin-bottom: 24px;
+      flex-grow: 1; // Push benefit to bottom
     }
     
     .benefit {
@@ -556,7 +601,8 @@ section {
       font-size: 0.875rem;
       line-height: 1.6;
       color: #f4f4f4;
-      margin-top: 24px;
+      margin-top: auto; // Align to bottom
+      flex-shrink: 0;
       
       strong {
         color: #78a9ff;
@@ -646,21 +692,41 @@ section {
     }
   }
   
+  // FIX 1: Remove top spacing - eliminate margin-top
   .cds--data-table-container {
     background: #ffffff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    margin-top: 32px;
+    margin-top: 32px; // Consistent spacing from heading
+    padding: 0; // Remove any default padding
+    overflow: hidden; // Prevent margin collapse
   }
   
   .cds--data-table {
+    // FIX 2: Remove any top margin/padding from table itself
+    margin: 0;
+    
+    // FIX 3: Improved header styling with IBM Carbon blue
+    thead {
+      // Remove any spacing above header
+      margin: 0;
+      padding: 0;
+    }
+    
     th {
-      background: #e0e0e0;
+      // Solid blue background with white text (preferred option)
+      background: #0f62fe !important; // IBM Carbon blue
       font-weight: 600;
-      color: #161616;
+      color: #ffffff !important; // White text for contrast
       font-size: 0.875rem;
       text-transform: uppercase;
       letter-spacing: 0.02em;
-      padding: 16px;
+      padding: 20px 16px; // Increased padding for better presence
+      border: none; // Remove any borders
+      
+      // Alternative: Light blue background with blue text
+      // Uncomment below and comment above if you prefer this style
+      // background: #d0e2ff !important; // Light blue
+      // color: #0f62fe !important; // Blue text
     }
     
     td {
@@ -668,6 +734,14 @@ section {
       line-height: 1.6;
       color: #161616;
       padding: 24px 16px;
+      border-bottom: 1px solid #e0e0e0; // Subtle row separator
+    }
+    
+    // FIX 4: Remove bottom spacing - clean table end
+    tbody {
+      tr:last-child td {
+        border-bottom: none; // Remove border from last row
+      }
     }
     
     tr {
@@ -677,6 +751,12 @@ section {
         background: #f4f4f4;
       }
     }
+  }
+  
+  // FIX 5: Ensure no extra spacing at bottom of container
+  .cds--data-table-content {
+    padding: 0;
+    margin: 0;
   }
 }
 
