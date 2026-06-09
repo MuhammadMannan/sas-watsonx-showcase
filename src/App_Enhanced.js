@@ -541,21 +541,21 @@ function App() {
                   <h4>Data Ingestion</h4>
                   <p>Data ingestion and integration using watsonx.data</p>
                 </div>
-                <div className={`flow-connector connector-red ${activeStep >= 2 ? 'animate' : ''}`}></div>
+                <div className={`flow-connector ${activeStep >= 2 ? 'animate' : ''}`}></div>
 
                 <div className={`flow-step ${activeStep >= 2 ? 'active' : ''}`}>
                   <div className="step-number">2</div>
                   <h4>Model Development</h4>
                   <p>Model development and training using watsonx.ai</p>
                 </div>
-                <div className={`flow-connector connector-purple ${activeStep >= 3 ? 'animate' : ''}`}></div>
+                <div className={`flow-connector ${activeStep >= 3 ? 'animate' : ''}`}></div>
 
                 <div className={`flow-step ${activeStep >= 3 ? 'active' : ''}`}>
                   <div className="step-number">3</div>
                   <h4>Automation</h4>
                   <p>Workflow automation using watsonx Orchestrate</p>
                 </div>
-                <div className={`flow-connector connector-yellow ${activeStep >= 4 ? 'animate' : ''}`}></div>
+                <div className={`flow-connector ${activeStep >= 4 ? 'animate' : ''}`}></div>
 
                 <div className={`flow-step ${activeStep >= 4 ? 'active' : ''}`}>
                   <div className="step-number">4</div>
