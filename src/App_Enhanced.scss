@@ -1084,6 +1084,55 @@ section {
       font-weight: 400;
     }
   }
+  
+  .logo-section {
+    margin-top: 40px;
+    text-align: center;
+    
+    @include breakpoint-down(md) {
+      margin-top: 32px;
+    }
+    
+    .logo-label {
+      font-size: 0.875rem;
+      color: #6f6f6f;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 400;
+    }
+    
+    .logo-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      
+      @include breakpoint-down(md) {
+        gap: 16px;
+      }
+      
+      .partner-logo {
+        max-height: 48px;
+        height: auto;
+        width: auto;
+        
+        @include breakpoint-down(md) {
+          max-height: 36px;
+        }
+      }
+      
+      .logo-divider {
+        font-size: 1.5rem;
+        color: #8d8d8d;
+        font-weight: 300;
+        
+        @include breakpoint-down(md) {
+          font-size: 1.25rem;
+        }
+      }
+    }
+  }
 }
 
 // ============================================

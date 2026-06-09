@@ -746,6 +746,25 @@ function App() {
                 </p>
               </div>
             </Column>
+
+            <Column lg={16} md={8} sm={4}>
+              <div className="logo-section">
+                <p className="logo-label">Strategic Partnership</p>
+                <div className="logo-row">
+                  <img
+                    src={`${process.env.PUBLIC_URL}/sas-institute-seeklogo.png`}
+                    alt="SAS Institute logo"
+                    className="partner-logo"
+                  />
+                  <span className="logo-divider">+</span>
+                  <img
+                    src={`${process.env.PUBLIC_URL}/IBM_logo (1).svg`}
+                    alt="IBM logo"
+                    className="partner-logo"
+                  />
+                </div>
+              </div>
+            </Column>
             </Grid>
           </div>
         </Section>
