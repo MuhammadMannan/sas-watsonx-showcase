@@ -708,6 +708,25 @@ function App() {
             </Column>
 
             <Column lg={16} md={8} sm={4}>
+              <div className="logo-section">
+                <p className="logo-label">Strategic Partnership</p>
+                <div className="logo-row">
+                  <img
+                    src={`${process.env.PUBLIC_URL}/sas-institute-seeklogo.png`}
+                    alt="SAS Institute logo"
+                    className="partner-logo"
+                  />
+                  <span className="logo-divider">+</span>
+                  <img
+                    src={`${process.env.PUBLIC_URL}/IBM_logo (1).svg`}
+                    alt="IBM logo"
+                    className="partner-logo"
+                  />
+                </div>
+              </div>
+            </Column>
+
+            <Column lg={16} md={8} sm={4}>
               <p className="conclusion-intro">
                 As SAS continues to evolve its platform to meet the demands of modern AI-driven enterprises, it must address challenges around scalability, accessibility, governance, and efficiency. Success will depend on its ability to modernize data infrastructure, expand AI adoption across users, and ensure responsible, compliant innovation at scale.
               </p>
@@ -744,25 +763,6 @@ function App() {
                 <p>
                   By aligning SAS's strategic priorities with IBM watsonx capabilities, organizations can unlock scalable, governed, and accessible AI—enabling faster innovation, reduced risk, and measurable business impact.
                 </p>
-              </div>
-            </Column>
-
-            <Column lg={16} md={8} sm={4}>
-              <div className="logo-section">
-                <p className="logo-label">Strategic Partnership</p>
-                <div className="logo-row">
-                  <img
-                    src={`${process.env.PUBLIC_URL}/sas-institute-seeklogo.png`}
-                    alt="SAS Institute logo"
-                    className="partner-logo"
-                  />
-                  <span className="logo-divider">+</span>
-                  <img
-                    src={`${process.env.PUBLIC_URL}/IBM_logo (1).svg`}
-                    alt="IBM logo"
-                    className="partner-logo"
-                  />
-                </div>
               </div>
             </Column>
             </Grid>
