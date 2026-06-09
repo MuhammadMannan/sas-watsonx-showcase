@@ -102,7 +102,7 @@ function App() {
               if (rowIndex <= 4) {
                 setVisibleRows(rowIndex);
                 rowIndex++;
-                setTimeout(animateRows, 200); // 0.2s between rows
+                setTimeout(animateRows, 300); // 0.3s between rows for smoother effect
               }
             };
             animateRows();
