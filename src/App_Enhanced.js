@@ -57,16 +57,17 @@ function App() {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !hasAnimated) {
             setHasAnimated(true);
-            // Start animation sequence
-            let step = 0;
+            // Start animation sequence from step 1
+            let step = 1;
+            setActiveStep(1); // Immediately activate first step
             const animateSteps = () => {
+              step++;
               if (step <= 4) {
                 setActiveStep(step);
-                step++;
-                setTimeout(animateSteps, 1000); // 1 second between steps
+                setTimeout(animateSteps, 800); // 0.8 seconds between steps
               }
             };
-            animateSteps();
+            setTimeout(animateSteps, 800); // Start next step after 0.8s
           }
         });
       },

@@ -28,6 +28,13 @@ $spacing-13: 6rem;    // 96px
 .app {
   min-height: 100vh;
   background-color: var(--cds-background, #ffffff);
+  overflow-x: hidden;
+}
+
+// Disable horizontal scroll globally
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 .cds--content {
