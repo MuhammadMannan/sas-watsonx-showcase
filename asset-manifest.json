@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/sas-watsonx-showcase/static/css/main.e6a3b125.css",
-    "main.js": "/sas-watsonx-showcase/static/js/main.98470e36.js",
+    "main.css": "/sas-watsonx-showcase/static/css/main.8948dc17.css",
+    "main.js": "/sas-watsonx-showcase/static/js/main.41db7bc4.js",
     "static/js/453.8c7813b5.chunk.js": "/sas-watsonx-showcase/static/js/453.8c7813b5.chunk.js",
     "static/media/IBMPlexSerif-SemiBoldItalic-Cyrillic.woff2": "/sas-watsonx-showcase/static/media/IBMPlexSerif-SemiBoldItalic-Cyrillic.7be49c6bbce81872f9de.woff2",
     "static/media/IBMPlexSerif-LightItalic-Cyrillic.woff2": "/sas-watsonx-showcase/static/media/IBMPlexSerif-LightItalic-Cyrillic.59378f4e13ad25b38e4f.woff2",
@@ -94,12 +94,12 @@
     "static/media/IBMPlexMono-Light-Latin3.woff2": "/sas-watsonx-showcase/static/media/IBMPlexMono-Light-Latin3.9df386274b853a115c25.woff2",
     "static/media/IBMPlexMono-Regular-Latin3.woff2": "/sas-watsonx-showcase/static/media/IBMPlexMono-Regular-Latin3.e1f861af9126d251b322.woff2",
     "index.html": "/sas-watsonx-showcase/index.html",
-    "main.e6a3b125.css.map": "/sas-watsonx-showcase/static/css/main.e6a3b125.css.map",
-    "main.98470e36.js.map": "/sas-watsonx-showcase/static/js/main.98470e36.js.map",
+    "main.8948dc17.css.map": "/sas-watsonx-showcase/static/css/main.8948dc17.css.map",
+    "main.41db7bc4.js.map": "/sas-watsonx-showcase/static/js/main.41db7bc4.js.map",
     "453.8c7813b5.chunk.js.map": "/sas-watsonx-showcase/static/js/453.8c7813b5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e6a3b125.css",
-    "static/js/main.98470e36.js"
+    "static/css/main.8948dc17.css",
+    "static/js/main.41db7bc4.js"
   ]
 }
