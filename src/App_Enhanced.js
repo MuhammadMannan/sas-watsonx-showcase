@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   Header,
   HeaderName,
@@ -46,6 +46,44 @@ import './App_Enhanced.scss';
 
 function App() {
   const [selectedInitiative, setSelectedInitiative] = useState(0);
+  const [activeStep, setActiveStep] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const flowSectionRef = useRef(null);
+
+  // Animation logic for flow steps
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            setHasAnimated(true);
+            // Start animation sequence
+            let step = 0;
+            const animateSteps = () => {
+              if (step <= 4) {
+                setActiveStep(step);
+                step++;
+                setTimeout(animateSteps, 1000); // 1 second between steps
+              }
+            };
+            animateSteps();
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    const currentRef = flowSectionRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, [hasAnimated]);
 
   // Solution Mapping Data
   const solutionMappingHeaders = [
@@ -486,7 +524,7 @@ function App() {
         </Section>
 
         {/* How It Works Section - White Background */}
-        <Section id="how-it-works" className="how-it-works-section">
+        <Section id="how-it-works" className="how-it-works-section" ref={flowSectionRef}>
           <div className="page-container">
             <Grid>
             <Column lg={16} md={8} sm={4}>
@@ -496,31 +534,34 @@ function App() {
             </Column>
 
             <Column lg={4} md={2} sm={4}>
-              <div className="flow-step">
+              <div className={`flow-step ${activeStep >= 1 ? 'active' : ''}`}>
                 <div className="step-number">1</div>
                 <h4>Data Ingestion</h4>
                 <p>Data ingestion and integration using watsonx.data</p>
               </div>
+              {activeStep >= 2 && <div className="flow-connector"></div>}
             </Column>
 
             <Column lg={4} md={2} sm={4}>
-              <div className="flow-step">
+              <div className={`flow-step ${activeStep >= 2 ? 'active' : ''}`}>
                 <div className="step-number">2</div>
                 <h4>Model Development</h4>
                 <p>Model development and training using watsonx.ai</p>
               </div>
+              {activeStep >= 3 && <div className="flow-connector"></div>}
             </Column>
 
             <Column lg={4} md={2} sm={4}>
-              <div className="flow-step">
+              <div className={`flow-step ${activeStep >= 3 ? 'active' : ''}`}>
                 <div className="step-number">3</div>
                 <h4>Automation</h4>
                 <p>Workflow automation using watsonx Orchestrate</p>
               </div>
+              {activeStep >= 4 && <div className="flow-connector"></div>}
             </Column>
 
             <Column lg={4} md={2} sm={4}>
-              <div className="flow-step">
+              <div className={`flow-step ${activeStep >= 4 ? 'active' : ''}`}>
                 <div className="step-number">4</div>
                 <h4>Governance</h4>
                 <p>Monitoring, governance, and compliance using watsonx.governance</p>
