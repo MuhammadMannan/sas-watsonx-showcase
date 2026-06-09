@@ -187,23 +187,34 @@ function App() {
         {/* SAS Overview Section - White Background */}
         <Section id="sas" className="sas-section">
           <div className="page-container">
-            <Grid>
-            <Column lg={16} md={8} sm={4}>
-              <Heading className="section-heading">
-                SAS – The World's Leading Analytics Platform
-              </Heading>
-              <p className="section-description">
-                SAS is a global leader in analytics, with more than 45 years of experience delivering 
-                advanced data and AI solutions. It serves over 40,000 organizations worldwide across 
-                industries such as healthcare, financial services, government, and retail.
-              </p>
-              <p className="section-description">
-                Its platform provides powerful capabilities across data integration, machine learning, 
-                predictive analytics, and visualization, enabling enterprises to make informed, 
-                data-driven decisions.
-              </p>
-            </Column>
+            {/* Two-column layout: Text on left, Logo on right */}
+            <div className="sas-header-layout">
+              <div className="sas-text-content">
+                <Heading className="section-heading">
+                  SAS – The World's Leading Analytics Platform
+                </Heading>
+                <p className="section-description">
+                  SAS is a global leader in analytics, with more than 45 years of experience delivering
+                  advanced data and AI solutions. It serves over 40,000 organizations worldwide across
+                  industries such as healthcare, financial services, government, and retail.
+                </p>
+                <p className="section-description">
+                  Its platform provides powerful capabilities across data integration, machine learning,
+                  predictive analytics, and visualization, enabling enterprises to make informed,
+                  data-driven decisions.
+                </p>
+              </div>
+              <div className="sas-logo-container">
+                <img
+                  src={`${process.env.PUBLIC_URL}/sas-institute-seeklogo.png`}
+                  alt="SAS Institute Logo"
+                  className="sas-logo"
+                />
+              </div>
+            </div>
 
+            {/* Tiles Grid */}
+            <Grid>
             <Column lg={5} md={4} sm={4}>
               <Tile className="sas-tile">
                 <Analytics size={32} className="tile-icon" />
@@ -422,42 +433,35 @@ function App() {
         {/* watsonx Platform Section - DARK Background */}
         <Section id="watsonx" className="watsonx-section dark">
           <div className="page-container">
-            <Grid>
-            <Column lg={16} md={8} sm={4}>
-              <Heading className="section-heading light">
-                IBM watsonx – End-to-End AI & Data Platform
-              </Heading>
-            </Column>
-
-            <Column lg={8} md={4} sm={4}>
+            <Heading className="section-heading light">
+              IBM watsonx – End-to-End AI & Data Platform
+            </Heading>
+            
+            <div className="watsonx-grid">
               <div className="watsonx-card">
                 <Analytics size={40} className="watsonx-icon" />
                 <h3>watsonx.ai</h3>
                 <p>
-                  Provides an enterprise AI studio for building, training, and deploying machine learning 
+                  Provides an enterprise AI studio for building, training, and deploying machine learning
                   and foundation models. It supports prompt engineering, model tuning, and scalable AI development.
                 </p>
                 <div className="benefit">
                   <strong>Benefit:</strong> Enables faster AI innovation and deployment.
                 </div>
               </div>
-            </Column>
 
-            <Column lg={8} md={4} sm={4}>
               <div className="watsonx-card">
                 <DataBase size={40} className="watsonx-icon" />
                 <h3>watsonx.data</h3>
                 <p>
-                  A hybrid, open data lakehouse architecture designed to manage large volumes of structured 
+                  A hybrid, open data lakehouse architecture designed to manage large volumes of structured
                   and unstructured data efficiently.
                 </p>
                 <div className="benefit">
                   <strong>Benefit:</strong> Reduces cost while improving scalability and performance.
                 </div>
               </div>
-            </Column>
 
-            <Column lg={8} md={4} sm={4}>
               <div className="watsonx-card">
                 <CloudDataOps size={40} className="watsonx-icon" />
                 <h3>watsonx Orchestrate</h3>
@@ -468,9 +472,7 @@ function App() {
                   <strong>Benefit:</strong> Increases efficiency and reduces manual effort.
                 </div>
               </div>
-            </Column>
 
-            <Column lg={8} md={4} sm={4}>
               <div className="watsonx-card">
                 <Security size={40} className="watsonx-icon" />
                 <h3>watsonx.governance</h3>
@@ -481,8 +483,7 @@ function App() {
                   <strong>Benefit:</strong> Ensures responsible AI adoption and reduces risk.
                 </div>
               </div>
-            </Column>
-            </Grid>
+            </div>
           </div>
         </Section>
 
@@ -576,89 +577,125 @@ function App() {
         {/* Business Value Section - White Background */}
         <Section id="value" className="value-section">
           <div className="page-container">
-            <Grid>
-            <Column lg={16} md={8} sm={4}>
-              <Heading className="section-heading">
-                Business Value & Impact
-              </Heading>
-            </Column>
-
-            <Column lg={8} md={4} sm={4}>
+            <Heading className="section-heading">
+              Business Value & Impact
+            </Heading>
+            
+            <div className="value-tiles-grid">
               <Tile className="value-tile">
                 <Rocket size={40} className="value-icon" />
                 <h4>Faster Time-to-Insight</h4>
                 <p>Accelerate analytics workflows and decision-making processes across the enterprise.</p>
               </Tile>
-            </Column>
 
-            <Column lg={8} md={4} sm={4}>
               <Tile className="value-tile">
                 <ChartLineData size={40} className="value-icon" />
                 <h4>Reduced Costs</h4>
                 <p>Optimize data storage and infrastructure through efficient lakehouse architecture.</p>
               </Tile>
-            </Column>
 
-            <Column lg={8} md={4} sm={4}>
               <Tile className="value-tile">
                 <Growth size={40} className="value-icon" />
                 <h4>Increased Agility</h4>
                 <p>Respond faster to changing business conditions with scalable AI systems.</p>
               </Tile>
-            </Column>
 
-            <Column lg={8} md={4} sm={4}>
               <Tile className="value-tile">
                 <Security size={40} className="value-icon" />
                 <h4>Improved Compliance</h4>
                 <p>Ensure governance and regulatory alignment through built-in monitoring tools.</p>
               </Tile>
-            </Column>
-            </Grid>
+            </div>
           </div>
         </Section>
 
         {/* Use Cases Section - Light Gray Background */}
         <Section id="use-cases" className="use-cases-section">
           <div className="page-container">
-            <Grid>
-            <Column lg={16} md={8} sm={4}>
-              <Heading className="section-heading">
-                Real-World Application Examples
-              </Heading>
-            </Column>
-
-            <Column lg={16} md={8} sm={4}>
+            <Heading className="section-heading">
+              Real-World Application Examples
+            </Heading>
+            
+            <div className="use-cases-grid">
               <div className="use-case-card">
-                <h3>Fraud Detection</h3>
+                <div className="use-case-header">
+                  <Security size={24} className="use-case-icon" />
+                  <h3>Fraud Detection</h3>
+                </div>
                 <p>
-                  Organizations can leverage watsonx.data to unify transaction data from multiple sources 
-                  and use watsonx.ai to build advanced anomaly detection models. This enables faster 
+                  Organizations can leverage watsonx.data to unify transaction data from multiple sources
+                  and use watsonx.ai to build advanced anomaly detection models. This enables faster
                   identification of fraudulent activities while reducing false positives.
                 </p>
+                
+                <div className="real-example-block">
+                  <strong className="real-example-label">Minimizing business risk and supplier evaluation with AI</strong>
+                  <p className="real-example-text">
+                    Dun & Bradstreet partnered with IBM to build an AI-powered procurement assistant that analyzes supplier data to detect fraud risks and anomalies in real time. By combining enterprise data with AI-driven insights, organizations can identify suspicious patterns faster, reduce manual investigation effort, and make more informed, risk-aware decisions.
+                  </p>
+                  <Button
+                    kind="tertiary"
+                    size="sm"
+                    renderIcon={ArrowRight}
+                    onClick={() => window.open('https://www.ibm.com/case-studies/dun-and-bradstreet-ask-procurement?mhsrc=ibmsearch_a&mhq=dun%20%26amp%3B%20bradstreet', '_blank')}
+                  >
+                    Read More
+                  </Button>
+                </div>
               </div>
-            </Column>
 
-            <Column lg={16} md={8} sm={4}>
               <div className="use-case-card">
-                <h3>Healthcare Analytics</h3>
+                <div className="use-case-header">
+                  <Analytics size={24} className="use-case-icon" />
+                  <h3>Healthcare Analytics</h3>
+                </div>
                 <p>
-                  By integrating data across clinical systems, organizations can use predictive models 
+                  By integrating data across clinical systems, organizations can use predictive models
                   to improve patient outcomes and optimize resource allocation.
                 </p>
+                
+                <div className="real-example-block">
+                  <strong className="real-example-label">Bridging Maternal Care Gaps with AI-Driven Support</strong>
+                  <p className="real-example-text">
+                    MyLÚA Health partnered with IBM to build an AI-powered maternal care platform that integrates clinical and behavioral data to deliver real-time, personalized health insights. By using predictive analytics, healthcare providers can detect risks earlier, improve patient outcomes, and provide continuous care outside traditional clinical settings.
+                  </p>
+                  <Button
+                    kind="tertiary"
+                    size="sm"
+                    renderIcon={ArrowRight}
+                    onClick={() => window.open('https://www.ibm.com/new/product-blog/how-mylua-health-built-a-secure-maternal-care-agentic-platform-with-ibm-watsonx-orchestrate-and-watsonx-ai', '_blank')}
+                  >
+                    Read More
+                  </Button>
+                </div>
               </div>
-            </Column>
 
-            <Column lg={16} md={8} sm={4}>
               <div className="use-case-card">
-                <h3>Forecasting</h3>
+                <div className="use-case-header">
+                  <ChartLineData size={24} className="use-case-icon" />
+                  <h3>Forecasting</h3>
+                </div>
                 <p>
-                  Businesses can use AI models to predict demand, optimize supply chains, and improve 
+                  Businesses can use AI models to predict demand, optimize supply chains, and improve
                   operational planning accuracy.
                 </p>
+                
+                <div className="real-example-block">
+                  <strong className="real-example-label">Driving Faster, Risk-Aware Production Decisions With Agentic AI</strong>
+                  <p className="real-example-text">
+                    Suzhou Universal implemented an AI-powered platform using watsonx to analyze manufacturing and operational data in real time. By applying predictive models, the company can forecast production issues, optimize scheduling, and improve planning accuracy—reducing analysis time from 30 minutes to under 1 minute while significantly increasing decision accuracy.
+                  </p>
+                  <Button
+                    kind="tertiary"
+                    size="sm"
+                    renderIcon={ArrowRight}
+                    onClick={() => window.open('https://www.ibm.com/case-studies/suzhou', '_blank')}
+                  >
+                    Read More
+                  </Button>
+                </div>
               </div>
-            </Column>
-            </Grid>
+            </div>
           </div>
         </Section>
 

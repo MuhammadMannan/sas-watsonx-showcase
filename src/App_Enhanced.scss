@@ -222,14 +222,63 @@ section {
     padding: $spacing-09 0;
   }
   
+  // Two-column layout: Text left, Logo right
+  .sas-header-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: $spacing-09; // 48px
+    align-items: center; // Vertically center logo with text content
+    margin-bottom: $spacing-09; // 48px spacing before tiles
+    
+    @include breakpoint-down(md) {
+      grid-template-columns: 1fr; // Stack on mobile
+      gap: $spacing-07; // 32px
+      align-items: start; // Top align on mobile
+    }
+  }
+  
+  .sas-text-content {
+    // Text content is left-aligned by default
+    .section-heading {
+      text-align: left;
+      margin-bottom: $spacing-07; // 32px
+    }
+    
+    .section-description {
+      text-align: left;
+      margin-bottom: $spacing-06; // 24px
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  
+  .sas-logo-container {
+    display: flex;
+    justify-content: flex-end; // Align logo to the right
+    align-items: center; // Center vertically within container
+    
+    @include breakpoint-down(md) {
+      justify-content: center; // Center on mobile
+    }
+    
+    .sas-logo {
+      max-width: 280px; // Increased from 180px
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      
+      @include breakpoint-down(md) {
+        max-width: 200px; // Increased from 150px
+      }
+    }
+  }
+  
   // Use global page-container - Grid gaps only
   .cds--grid {
     row-gap: $spacing-06; // 24px
     column-gap: $spacing-06; // 24px
-  }
-  
-  .section-description {
-    margin-bottom: 48px;
   }
   
   .sas-tile {
@@ -773,13 +822,25 @@ section {
   }
   
   // Uses global .page-container
-  .cds--grid {
-    row-gap: $spacing-06; // 24px
-    column-gap: $spacing-06; // 24px
+  
+  .section-heading {
+    margin-bottom: $spacing-09; // 48px spacing before tiles
+  }
+  
+  // CSS Grid layout for 2x2 tiles with equal spacing
+  .value-tiles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); // 2 columns
+    gap: 40px; // Equal spacing for both rows and columns
+    
+    @include breakpoint-down(md) {
+      grid-template-columns: 1fr; // Single column on mobile
+      gap: $spacing-06; // 24px on mobile
+    }
   }
   
   .value-tile {
-    padding: 32px;
+    padding: 32px; // Consistent internal padding
     height: 100%;
     background: #ffffff;
     border: 1px solid #e0e0e0;
@@ -824,39 +885,96 @@ section {
     padding: 48px 0;
   }
   
-  .cds--grid {
-    max-width: 1056px;
-    margin: 0 auto;
-    padding: 0 32px;
+  // Uses global .page-container
+  
+  .section-heading {
+    margin-bottom: $spacing-09; // 48px spacing before use cases
+  }
+  
+  .use-cases-grid {
+    display: grid;
+    grid-template-columns: 1fr; // Single column layout
+    gap: $spacing-07; // 32px spacing between cards
     
     @include breakpoint-down(md) {
-      padding: 0 16px;
+      gap: $spacing-06; // 24px on mobile
     }
   }
   
   .use-case-card {
     padding: 32px;
     background: #ffffff;
-    border-left: 4px solid #0f62fe;
-    margin-bottom: 24px;
+    border-radius: 4px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
     
-    &:last-child {
-      margin-bottom: 0;
+    // Hover effect for better interactivity
+    &:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      transform: translateY(-2px);
+    }
+    
+    .use-case-header {
+      display: flex;
+      align-items: center;
+      gap: 12px; // Space between icon and heading
+      margin-bottom: 16px; // Spacing to paragraph
+    }
+    
+    .use-case-icon {
+      color: #0f62fe;
+      flex-shrink: 0; // Prevent icon from shrinking
     }
     
     h3 {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       font-weight: 600;
-      margin-bottom: 16px;
+      margin: 0;
       color: #161616;
     }
     
-    p {
+    > p {
       font-size: 0.9375rem;
       line-height: 1.7;
       color: #525252;
       margin: 0;
+      padding-left: 36px; // Align with heading text (24px icon + 12px gap)
+      
+      @include breakpoint-down(md) {
+        padding-left: 0; // Remove indent on mobile for better readability
+      }
+    }
+    
+    // Real Example Block Styling
+    .real-example-block {
+      margin-top: 16px;
+      padding: 16px;
+      background: #f4f8ff; // Light blue background
+      border-left: 3px solid #0f62fe; // Blue left border
+      border-radius: 0 4px 4px 0; // Rounded corners on right side
+      
+      .real-example-label {
+        display: block;
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: #161616;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+      }
+      
+      .real-example-text {
+        font-size: 0.9375rem;
+        line-height: 1.7;
+        color: #525252;
+        margin: 0 0 16px 0;
+        padding-left: 0; // No indent for example text
+      }
+      
+      // Carbon Button styling (tertiary buttons already styled by Carbon)
+      .cds--btn {
+        margin-top: 4px;
+      }
     }
   }
 }
