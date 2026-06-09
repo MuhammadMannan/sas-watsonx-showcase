@@ -754,26 +754,46 @@ section {
     position: absolute;
     top: 2rem; // Align with center of step-number (4rem / 2)
     left: calc(50% + 2rem); // Start from right edge of circle
-    width: 0;
+    width: calc(100% - 4rem); // Full width minus the circle diameter
     height: 4px;
-    background: linear-gradient(90deg, #0f62fe 0%, #0043ce 100%);
-    animation: growLine 0.7s ease-in-out forwards;
+    background: #e0e0e0; // Gray background for inactive state
     z-index: 1;
     border-radius: 2px;
+    overflow: hidden;
     
     @include breakpoint-down(md) {
       display: none;
     }
-  }
-  
-  @keyframes growLine {
-    0% {
+    
+    // Animated progress bar overlay
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
       width: 0;
-      opacity: 0.5;
+      border-radius: 2px;
+      transition: width 0.7s ease-in-out;
     }
-    100% {
-      width: calc(100% - 4rem); // Full width minus the circle diameter
-      opacity: 1;
+    
+    &.animate::before {
+      width: 100%;
+    }
+    
+    // Red connector (1 to 2)
+    &.connector-red::before {
+      background: #da1e28; // IBM Red
+    }
+    
+    // Purple connector (2 to 3)
+    &.connector-purple::before {
+      background: #8a3ffc; // IBM Purple
+    }
+    
+    // Yellow connector (3 to 4)
+    &.connector-yellow::before {
+      background: #f1c21b; // IBM Yellow
     }
   }
 }

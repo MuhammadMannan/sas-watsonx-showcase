@@ -540,7 +540,7 @@ function App() {
                 <h4>Data Ingestion</h4>
                 <p>Data ingestion and integration using watsonx.data</p>
               </div>
-              {activeStep >= 2 && <div className="flow-connector"></div>}
+              <div className={`flow-connector connector-red ${activeStep >= 2 ? 'animate' : ''}`}></div>
             </Column>
 
             <Column lg={4} md={2} sm={4}>
@@ -549,7 +549,7 @@ function App() {
                 <h4>Model Development</h4>
                 <p>Model development and training using watsonx.ai</p>
               </div>
-              {activeStep >= 3 && <div className="flow-connector"></div>}
+              <div className={`flow-connector connector-purple ${activeStep >= 3 ? 'animate' : ''}`}></div>
             </Column>
 
             <Column lg={4} md={2} sm={4}>
@@ -558,7 +558,7 @@ function App() {
                 <h4>Automation</h4>
                 <p>Workflow automation using watsonx Orchestrate</p>
               </div>
-              {activeStep >= 4 && <div className="flow-connector"></div>}
+              <div className={`flow-connector connector-yellow ${activeStep >= 4 ? 'animate' : ''}`}></div>
             </Column>
 
             <Column lg={4} md={2} sm={4}>
