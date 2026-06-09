@@ -1,0 +1,903 @@
+@use '@carbon/react/scss/themes';
+@use '@carbon/react/scss/theme' with (
+  $theme: themes.$white
+);
+@use '@carbon/react';
+@use '@carbon/react/scss/breakpoint' as *;
+@use '@carbon/react/scss/spacing' as *;
+
+// ============================================
+// CARBON DESIGN TOKENS
+// ============================================
+
+// Import Carbon spacing scale
+$spacing-03: 0.5rem;  // 8px
+$spacing-04: 0.75rem; // 12px
+$spacing-05: 1rem;    // 16px
+$spacing-06: 1.5rem;  // 24px
+$spacing-07: 2rem;    // 32px
+$spacing-09: 3rem;    // 48px
+$spacing-10: 4rem;    // 64px
+$spacing-12: 5rem;    // 80px
+$spacing-13: 6rem;    // 96px
+
+// ============================================
+// GLOBAL LAYOUT SYSTEM
+// ============================================
+
+.app {
+  min-height: 100vh;
+  background-color: var(--cds-background, #ffffff);
+}
+
+.cds--content {
+  padding: 0;
+  background-color: var(--cds-background, #ffffff);
+}
+
+// Skip to main content link (accessibility)
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: $spacing-05 $spacing-06;
+  background-color: var(--cds-background, #ffffff);
+  color: var(--cds-text-primary, #161616);
+  text-decoration: none;
+  border: 2px solid var(--cds-focus, #0f62fe);
+  
+  &:focus {
+    left: $spacing-05;
+    top: $spacing-05;
+  }
+}
+
+// ============================================
+// GLOBAL PAGE CONTAINER - USE FOR ALL SECTIONS
+// ============================================
+
+// This is the SINGLE source of truth for horizontal layout
+// ALL sections must use this container for consistency
+.page-container {
+  max-width: 1056px;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: $spacing-07;  // 32px
+  padding-right: $spacing-07; // 32px
+  
+  @include breakpoint-down(md) {
+    padding-left: $spacing-05;  // 16px on mobile
+    padding-right: $spacing-05; // 16px on mobile
+  }
+}
+
+// Legacy class name - maps to page-container for backwards compatibility
+.section-container {
+  @extend .page-container;
+}
+
+// Consistent section padding (vertical only)
+section {
+  padding: $spacing-12 0; // 80px top/bottom
+  
+  @include breakpoint-down(md) {
+    padding: $spacing-09 0; // 48px on mobile
+  }
+}
+
+// Consistent heading spacing
+.section-heading {
+  font-size: 2.75rem;
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: $spacing-07; // 32px using token
+  color: var(--cds-text-primary, #161616);
+  letter-spacing: -0.02em;
+  
+  &.light {
+    color: var(--cds-text-on-color, #f4f4f4);
+  }
+  
+  @include breakpoint-down(md) {
+    font-size: 2rem;
+  }
+}
+
+.section-description {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  margin-bottom: $spacing-09; // 48px using token
+  color: var(--cds-text-secondary, #525252);
+  max-width: 900px;
+}
+
+// ============================================
+// HERO SECTION - White Background
+// ============================================
+
+.hero-section {
+  background: var(--cds-background, #ffffff);
+  padding: $spacing-13 0 $spacing-12 0; // 96px 0 80px 0
+  border-bottom: 1px solid var(--cds-border-subtle, #e0e0e0);
+  
+  @include breakpoint-down(md) {
+    padding: $spacing-10 0 $spacing-09 0; // 64px 0 48px 0
+  }
+  
+  // Use global page-container - no custom sizing
+  
+  .hero-title {
+    color: var(--cds-text-primary, #161616);
+    font-size: 3.75rem;
+    font-weight: 300;
+    margin-bottom: $spacing-07; // 32px
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    
+    @include breakpoint-down(md) {
+      font-size: 2.5rem;
+    }
+  }
+  
+  .hero-subtitle {
+    color: var(--cds-text-secondary, #525252);
+    font-size: 1.125rem;
+    margin-bottom: $spacing-06; // 24px
+    line-height: 1.7;
+    font-weight: 400;
+  }
+  
+  .hero-tags {
+    display: flex;
+    gap: $spacing-04; // 12px
+    flex-wrap: wrap;
+    margin-top: $spacing-09; // 48px
+  }
+}
+
+// ============================================
+// CONTEXT SECTION - Light Gray Background
+// ============================================
+
+.context-section {
+  background: #f4f4f4;
+  padding: 80px 0;
+  
+  @include breakpoint-down(md) {
+    padding: 48px 0;
+  }
+  
+  .section-heading {
+    text-align: left;  // Left align the heading
+  }
+  
+  .context-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    width: 100%;  // Full width
+    
+    @include breakpoint-down(md) {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+  
+  .context-tile {
+    padding: 32px;
+    height: 100%;
+    background: #ffffff;
+    border: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    
+    &:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      transform: translateY(-2px);
+    }
+    
+    .tile-icon {
+      color: #0f62fe;
+      margin-bottom: 24px;
+    }
+    
+    p {
+      color: #525252;
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      margin: 0;
+    }
+  }
+}
+
+// ============================================
+// SAS SECTION - White Background
+// ============================================
+
+.sas-section {
+  background: var(--cds-background, #ffffff);
+  padding: $spacing-12 0;
+  
+  @include breakpoint-down(md) {
+    padding: $spacing-09 0;
+  }
+  
+  // Use global page-container - Grid gaps only
+  .cds--grid {
+    row-gap: $spacing-06; // 24px
+    column-gap: $spacing-06; // 24px
+  }
+  
+  .section-description {
+    margin-bottom: 48px;
+  }
+  
+  .sas-tile {
+    padding: 24px;
+    height: 100%;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      border-color: #0f62fe;
+      box-shadow: 0 2px 6px rgba(15, 98, 254, 0.1);
+    }
+    
+    .tile-icon {
+      color: #0f62fe;
+      margin-bottom: 20px;
+    }
+    
+    h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #161616;
+    }
+    
+    p {
+      color: #525252;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+  }
+}
+
+// ============================================
+// CHALLENGES SECTION - Light Gray Background
+// ============================================
+
+.challenges-section {
+  background: var(--cds-layer, #f4f4f4);
+  padding: $spacing-12 0;
+  
+  @include breakpoint-down(md) {
+    padding: $spacing-09 0;
+  }
+  
+  // Use global page-container - no custom sizing
+  
+  .cds--accordion {
+    max-width: 900px;
+    margin: 0;
+    background: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cds--accordion__item {
+    margin-bottom: 16px;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  .challenge-content {
+    padding: 24px 0;
+  }
+  
+  .challenge-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #161616;
+    margin-bottom: 24px;
+    font-weight: 400;
+  }
+  
+  .challenge-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    
+    li {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: #525252;
+      padding-left: 2rem;
+      margin-bottom: 12px;
+      position: relative;
+      
+      &:before {
+        content: "→";
+        position: absolute;
+        left: 0.5rem;
+        color: #0f62fe;
+        font-weight: bold;
+        font-size: 1.125rem;
+      }
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+// ============================================
+// TRANSFORMATION SECTION - White Background
+// ============================================
+
+.transformation-section {
+  background: var(--cds-background, #ffffff);
+  padding: $spacing-12 0;
+  
+  @include breakpoint-down(md) {
+    padding: $spacing-09 0;
+  }
+  
+  // Use global page-container - Grid gaps only
+  .cds--grid {
+    column-gap: $spacing-07; // 32px
+    row-gap: $spacing-07; // 32px
+  }
+  
+  .comparison-card {
+    padding: 32px;
+    border-radius: 4px;
+    height: 100%;
+    
+    &.before {
+      background: #fff1f1;
+      border-left: 4px solid #da1e28;
+    }
+    
+    &.after {
+      background: #defbe6;
+      border-left: 4px solid #24a148;
+    }
+    
+    .comparison-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      
+      .comparison-icon {
+        flex-shrink: 0;
+      }
+      
+      h3 {
+        font-size: 1.75rem;
+        font-weight: 400;
+        margin: 0;
+        color: #161616;
+      }
+    }
+    
+    .comparison-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      
+      li {
+        font-size: 0.9375rem;
+        line-height: 1.7;
+        color: #161616;
+        padding-left: 2rem;
+        margin-bottom: 16px;
+        position: relative;
+        
+        &:before {
+          content: "•";
+          position: absolute;
+          left: 0.5rem;
+          font-weight: bold;
+          font-size: 1.5rem;
+        }
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+    
+    &.before .comparison-list li:before {
+      color: #da1e28;
+    }
+    
+    &.after .comparison-list li:before {
+      color: #24a148;
+    }
+  }
+}
+
+// ============================================
+// INITIATIVES SECTION - Light Gray Background
+// ============================================
+
+.initiatives-section {
+  background: var(--cds-layer, #f4f4f4);
+  padding: $spacing-12 0; // 80px
+  
+  @include breakpoint-down(md) {
+    padding: $spacing-09 0; // 48px
+  }
+  
+  // Uses global .section-container (extends .page-container)
+  
+  .section-heading {
+    margin-bottom: $spacing-07; // 32px
+  }
+  
+  .tabs-container {
+    // No extra padding or margin - tabs align with heading
+    background: var(--cds-background, #ffffff);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cds--tabs {
+    // Remove any default margins
+    margin: 0;
+  }
+  
+  .cds--tab-content {
+    // Override Carbon's default padding
+    padding: 0 !important;
+  }
+  
+  .tab-content {
+    padding: $spacing-09; // 48px - single level of padding
+    background: var(--cds-background, #ffffff);
+    min-height: 300px;
+    
+    @include breakpoint-down(md) {
+      padding: $spacing-07; // 32px on mobile
+    }
+    
+    .tab-icon {
+      color: var(--cds-interactive, #0f62fe);
+      margin-bottom: $spacing-06; // 24px
+    }
+    
+    h3 {
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: $spacing-06; // 24px
+      color: var(--cds-text-primary, #161616);
+    }
+    
+    p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--cds-text-secondary, #525252);
+      max-width: 800px;
+      margin: 0;
+    }
+  }
+}
+
+// ============================================
+// WATSONX SECTION - DARK Background
+// ============================================
+
+.watsonx-section.dark {
+  background: #161616;
+  padding: $spacing-12 0; // 80px
+  color: #f4f4f4;
+  
+  @include breakpoint-down(md) {
+    padding: $spacing-09 0; // 48px
+  }
+  
+  // Uses global .page-container
+  .cds--grid {
+    row-gap: $spacing-07; // 32px
+    column-gap: $spacing-07; // 32px
+    
+    @include breakpoint-down(md) {
+      row-gap: $spacing-06; // 24px
+      column-gap: $spacing-06; // 24px
+    }
+  }
+  
+  .section-heading {
+    margin-bottom: 48px;
+  }
+  
+  .watsonx-card {
+    padding: 32px;
+    background: #262626;
+    border: 1px solid #393939;
+    border-radius: 4px;
+    height: 100%;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: #2d2d2d;
+      border-color: #0f62fe;
+      box-shadow: 0 4px 12px rgba(15, 98, 254, 0.2);
+    }
+    
+    .watsonx-icon {
+      color: #78a9ff;
+      margin-bottom: 24px;
+    }
+    
+    h3 {
+      font-size: 1.75rem;
+      font-weight: 400;
+      margin-bottom: 16px;
+      color: #f4f4f4;
+    }
+    
+    p {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: #c6c6c6;
+      margin-bottom: 24px;
+    }
+    
+    .benefit {
+      padding: 16px;
+      background: #393939;
+      border-left: 3px solid #0f62fe;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      color: #f4f4f4;
+      margin-top: 24px;
+      
+      strong {
+        color: #78a9ff;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+// ============================================
+// HOW IT WORKS SECTION - White Background
+// ============================================
+
+.how-it-works-section {
+  background: #ffffff;
+  padding: 80px 0;
+  
+  @include breakpoint-down(md) {
+    padding: 48px 0;
+  }
+  
+  .cds--grid {
+    max-width: 1056px;
+    margin: 0 auto;
+    padding: 0 32px;
+    column-gap: 24px;
+    row-gap: 48px;
+    
+    @include breakpoint-down(md) {
+      padding: 0 16px;
+    }
+  }
+  
+  .flow-step {
+    text-align: center;
+    padding: 24px 16px;
+    
+    .step-number {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      background: #0f62fe;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin: 0 auto 24px auto;
+    }
+    
+    h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #161616;
+    }
+    
+    p {
+      font-size: 0.875rem;
+      line-height: 1.6;
+      color: #525252;
+      margin: 0;
+    }
+  }
+}
+
+// ============================================
+// MAPPING SECTION - Light Gray Background
+// ============================================
+
+.mapping-section {
+  background: #f4f4f4;
+  padding: 80px 0;
+  
+  @include breakpoint-down(md) {
+    padding: 48px 0;
+  }
+  
+  .cds--grid {
+    max-width: 1056px;
+    margin: 0 auto;
+    padding: 0 32px;
+    
+    @include breakpoint-down(md) {
+      padding: 0 16px;
+    }
+  }
+  
+  .cds--data-table-container {
+    background: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-top: 32px;
+  }
+  
+  .cds--data-table {
+    th {
+      background: #e0e0e0;
+      font-weight: 600;
+      color: #161616;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      padding: 16px;
+    }
+    
+    td {
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: #161616;
+      padding: 24px 16px;
+    }
+    
+    tr {
+      transition: background 0.2s ease;
+      
+      &:hover {
+        background: #f4f4f4;
+      }
+    }
+  }
+}
+
+// ============================================
+// VALUE SECTION - White Background
+// ============================================
+
+.value-section {
+  background: var(--cds-background, #ffffff);
+  padding: $spacing-12 0; // 80px
+  
+  @include breakpoint-down(md) {
+    padding: $spacing-09 0; // 48px
+  }
+  
+  // Uses global .page-container
+  .cds--grid {
+    row-gap: $spacing-06; // 24px
+    column-gap: $spacing-06; // 24px
+  }
+  
+  .value-tile {
+    padding: 32px;
+    height: 100%;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      border-color: #0f62fe;
+      box-shadow: 0 4px 8px rgba(15, 98, 254, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    .value-icon {
+      color: #0f62fe;
+      margin-bottom: 20px;
+    }
+    
+    h4 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 16px;
+      color: #161616;
+    }
+    
+    p {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: #525252;
+      margin: 0;
+    }
+  }
+}
+
+// ============================================
+// USE CASES SECTION - Light Gray Background
+// ============================================
+
+.use-cases-section {
+  background: #f4f4f4;
+  padding: 80px 0;
+  
+  @include breakpoint-down(md) {
+    padding: 48px 0;
+  }
+  
+  .cds--grid {
+    max-width: 1056px;
+    margin: 0 auto;
+    padding: 0 32px;
+    
+    @include breakpoint-down(md) {
+      padding: 0 16px;
+    }
+  }
+  
+  .use-case-card {
+    padding: 32px;
+    background: #ffffff;
+    border-left: 4px solid #0f62fe;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #161616;
+    }
+    
+    p {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: #525252;
+      margin: 0;
+    }
+  }
+}
+
+// ============================================
+// ENGAGEMENT SECTION - White Background
+// ============================================
+
+.engagement-section {
+  background: var(--cds-background, #ffffff);
+  padding: $spacing-12 0; // 80px
+  
+  @include breakpoint-down(md) {
+    padding: $spacing-09 0; // 48px
+  }
+  
+  // Uses global .page-container
+  
+  .engagement-stepper {
+    padding: 48px 32px;
+    background: #f4f4f4;
+    border-radius: 4px;
+    margin-bottom: 48px;
+    
+    @include breakpoint-down(md) {
+      padding: 32px 16px;
+    }
+  }
+  
+  .cta-section {
+    text-align: center;
+    padding: 48px 32px;
+    background: linear-gradient(135deg, #0f62fe 0%, #0043ce 100%);
+    border-radius: 4px;
+    color: white;
+    
+    @include breakpoint-down(md) {
+      padding: 32px 16px;
+    }
+    
+    h3 {
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: 16px;
+      color: white;
+    }
+    
+    p {
+      font-size: 1.125rem;
+      margin-bottom: 32px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+      color: #f4f4f4;
+    }
+    
+    .cta-button {
+      background: white;
+      color: #0f62fe;
+      border: none;
+      
+      &:hover {
+        background: #e0e0e0;
+      }
+    }
+  }
+}
+
+// ============================================
+// FOOTER SECTION - Dark Background
+// ============================================
+
+.footer-section {
+  background-color: #161616;
+  padding: 40px 0;
+  margin-top: 0;
+  
+  .footer-content {
+    max-width: 1056px;
+    margin: 0 auto;
+    padding: 0 32px;
+    text-align: center;
+    color: #c6c6c6;
+    
+    @include breakpoint-down(md) {
+      padding: 0 16px;
+    }
+    
+    p {
+      margin: 8px 0;
+      font-size: 0.875rem;
+    }
+  }
+}
+
+// ============================================
+// GLOBAL UTILITIES
+// ============================================
+
+// Smooth Scrolling
+html {
+  scroll-behavior: smooth;
+}
+
+// Custom Scrollbar
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f4f4f4;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0f62fe;
+  border-radius: 5px;
+  
+  &:hover {
+    background: #0043ce;
+  }
+}
+
+// Made with Bob
