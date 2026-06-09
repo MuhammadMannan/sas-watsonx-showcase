@@ -759,7 +759,7 @@ function App() {
                   />
                   <span className="logo-divider">+</span>
                   <img
-                    src={`${process.env.PUBLIC_URL}/IBM_logo (1).svg`}
+                    src={`${process.env.PUBLIC_URL}/ibm-logo.svg`}
                     alt="IBM logo"
                     className="partner-logo"
                   />
