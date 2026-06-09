@@ -58,16 +58,12 @@ function App() {
           if (entry.isIntersecting && !hasAnimated) {
             setHasAnimated(true);
             // Start animation sequence from step 1
-            let step = 1;
             setActiveStep(1); // Immediately activate first step
-            const animateSteps = () => {
-              step++;
-              if (step <= 4) {
-                setActiveStep(step);
-                setTimeout(animateSteps, 800); // 0.8 seconds between steps
-              }
-            };
-            setTimeout(animateSteps, 800); // Start next step after 0.8s
+            
+            // Each subsequent step activates after the line reaches it (0.7s line animation)
+            setTimeout(() => setActiveStep(2), 700);  // Step 2 after line 1 completes
+            setTimeout(() => setActiveStep(3), 1400); // Step 3 after line 2 completes
+            setTimeout(() => setActiveStep(4), 2100); // Step 4 after line 3 completes
           }
         });
       },
