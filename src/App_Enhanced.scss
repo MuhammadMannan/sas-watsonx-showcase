@@ -984,7 +984,7 @@ section {
 // ENGAGEMENT SECTION - White Background
 // ============================================
 
-.engagement-section {
+.conclusion-section {
   background: var(--cds-background, #ffffff);
   padding: $spacing-12 0; // 80px
   
@@ -994,53 +994,94 @@ section {
   
   // Uses global .page-container
   
-  .engagement-stepper {
-    padding: 48px 32px;
-    background: #f4f4f4;
-    border-radius: 4px;
+  .conclusion-intro {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #161616;
     margin-bottom: 48px;
     
     @include breakpoint-down(md) {
-      padding: 32px 16px;
+      margin-bottom: 32px;
     }
   }
   
-  .cta-section {
-    text-align: center;
-    padding: 48px 32px;
-    background: linear-gradient(135deg, #0f62fe 0%, #0043ce 100%);
+  .conclusion-card {
+    padding: 32px;
     border-radius: 4px;
-    color: white;
+    height: 100%;
     
-    @include breakpoint-down(md) {
-      padding: 32px 16px;
+    &.needs {
+      background: #f4f4f4;
+      border-left: 4px solid #8d8d8d;
+    }
+    
+    &.delivers {
+      background: #edf5ff;
+      border-left: 4px solid #0f62fe;
     }
     
     h3 {
-      font-size: 2rem;
+      font-size: 1.5rem;
       font-weight: 400;
-      margin-bottom: 16px;
-      color: white;
+      margin-bottom: 24px;
+      color: #161616;
+    }
+    
+    .conclusion-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      
+      li {
+        font-size: 0.9375rem;
+        line-height: 1.7;
+        color: #161616;
+        padding-left: 1.5rem;
+        margin-bottom: 16px;
+        position: relative;
+        
+        &:before {
+          content: "•";
+          position: absolute;
+          left: 0;
+          font-weight: bold;
+          font-size: 1.5rem;
+          line-height: 1.7;
+        }
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+    
+    &.needs .conclusion-list li:before {
+      color: #8d8d8d;
+    }
+    
+    &.delivers .conclusion-list li:before {
+      color: #0f62fe;
+    }
+  }
+  
+  .conclusion-statement {
+    margin-top: 48px;
+    padding: 32px;
+    background: #edf5ff;
+    border-left: 4px solid #0f62fe;
+    border-radius: 4px;
+    
+    @include breakpoint-down(md) {
+      margin-top: 32px;
+      padding: 24px;
     }
     
     p {
-      font-size: 1.125rem;
-      margin-bottom: 32px;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+      font-size: 1.25rem;
       line-height: 1.7;
-      color: #f4f4f4;
-    }
-    
-    .cta-button {
-      background: white;
-      color: #0f62fe;
-      border: none;
-      
-      &:hover {
-        background: #e0e0e0;
-      }
+      color: #161616;
+      margin: 0;
+      font-weight: 400;
     }
   }
 }

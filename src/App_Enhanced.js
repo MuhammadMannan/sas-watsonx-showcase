@@ -19,8 +19,6 @@ import {
   TabPanel,
   Accordion,
   AccordionItem,
-  ProgressIndicator,
-  ProgressStep,
   DataTable,
   TableContainer,
   Table,
@@ -699,49 +697,53 @@ function App() {
           </div>
         </Section>
 
-        {/* Engagement Path Section - White Background */}
-        <Section id="engagement" className="engagement-section">
+        {/* Conclusion Section - White Background */}
+        <Section id="engagement" className="conclusion-section">
           <div className="page-container">
             <Grid>
             <Column lg={16} md={8} sm={4}>
               <Heading className="section-heading">
-                Proposed Engagement Path
+                Enabling SAS's Next Phase of AI Transformation
               </Heading>
             </Column>
 
             <Column lg={16} md={8} sm={4}>
-              <div className="engagement-stepper">
-                <ProgressIndicator currentIndex={0} spaceEqually>
-                  <ProgressStep
-                    label="Discovery Workshop"
-                    description="Align stakeholders, define objectives, and identify high-value opportunities."
-                  />
-                  <ProgressStep
-                    label="Proof of Concept"
-                    description="Validate solutions using real-world data and use cases."
-                  />
-                  <ProgressStep
-                    label="Governance Assessment"
-                    description="Evaluate compliance, risk, and governance frameworks."
-                  />
-                  <ProgressStep
-                    label="Roadmap Alignment"
-                    description="Develop a scalable and sustainable long-term implementation plan."
-                  />
-                </ProgressIndicator>
+              <p className="conclusion-intro">
+                As SAS continues to evolve its platform to meet the demands of modern AI-driven enterprises, it must address challenges around scalability, accessibility, governance, and efficiency. Success will depend on its ability to modernize data infrastructure, expand AI adoption across users, and ensure responsible, compliant innovation at scale.
+              </p>
+            </Column>
+
+            <Column lg={8} md={4} sm={4}>
+              <div className="conclusion-card needs">
+                <h3>What SAS Needs</h3>
+                <ul className="conclusion-list">
+                  <li>Scalable data and AI infrastructure to handle growing volumes of complex data</li>
+                  <li>Broader access to AI capabilities across both technical and business users</li>
+                  <li>Strong governance frameworks to ensure transparency, compliance, and accountability</li>
+                  <li>Increased operational efficiency through automation and streamlined workflows</li>
+                  <li>Faster time-to-insight to remain competitive in a rapidly evolving AI landscape</li>
+                </ul>
+              </div>
+            </Column>
+
+            <Column lg={8} md={4} sm={4}>
+              <div className="conclusion-card delivers">
+                <h3>How IBM watsonx Delivers</h3>
+                <ul className="conclusion-list">
+                  <li>watsonx.data enables scalable, cost-efficient data management through a hybrid lakehouse architecture</li>
+                  <li>watsonx.ai provides intuitive tools and foundation models to accelerate AI development and democratize usage</li>
+                  <li>watsonx.governance ensures responsible AI adoption with built-in monitoring, compliance, and lifecycle management</li>
+                  <li>watsonx Orchestrate automates workflows and integrates AI into everyday business processes</li>
+                  <li>A unified platform approach reduces complexity and accelerates time-to-value across the organization</li>
+                </ul>
               </div>
             </Column>
 
             <Column lg={16} md={8} sm={4}>
-              <div className="cta-section">
-                <h3>Ready to Transform with watsonx?</h3>
+              <div className="conclusion-statement">
                 <p>
-                  Let's schedule a discovery workshop to explore how IBM watsonx can accelerate 
-                  SAS's strategic initiatives and drive measurable business outcomes.
+                  By aligning SAS's strategic priorities with IBM watsonx capabilities, organizations can unlock scalable, governed, and accessible AI—enabling faster innovation, reduced risk, and measurable business impact.
                 </p>
-                <Button size="lg" className="cta-button" renderIcon={ArrowRight}>
-                  Schedule Discovery Workshop
-                </Button>
               </div>
             </Column>
             </Grid>
