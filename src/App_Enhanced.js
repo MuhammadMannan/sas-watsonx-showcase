@@ -96,13 +96,13 @@ function App() {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !tableAnimated) {
             setTableAnimated(true);
-            // Animate rows sequentially
+            // Animate rows with overlapping transitions for smoother cascade
             let rowIndex = 0;
             const animateRows = () => {
               if (rowIndex <= 4) {
                 setVisibleRows(rowIndex);
                 rowIndex++;
-                setTimeout(animateRows, 300); // 0.3s between rows for smoother effect
+                setTimeout(animateRows, 150); // 0.15s between rows - overlaps with 0.8s transition
               }
             };
             animateRows();
