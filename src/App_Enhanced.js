@@ -48,10 +48,7 @@ function App() {
   const [selectedInitiative, setSelectedInitiative] = useState(0);
   const [activeStep, setActiveStep] = useState(0);
   const [hasAnimated, setHasAnimated] = useState(false);
-  const [visibleRows, setVisibleRows] = useState(0);
-  const [tableAnimated, setTableAnimated] = useState(false);
   const flowSectionRef = useRef(null);
-  const tableSectionRef = useRef(null);
 
   // Animation logic for flow steps
   useEffect(() => {
@@ -88,41 +85,6 @@ function App() {
       }
     };
   }, [hasAnimated]);
-
-  // Animation logic for table rows
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !tableAnimated) {
-            setTableAnimated(true);
-            // Animate rows with overlapping transitions for smoother cascade
-            let rowIndex = 0;
-            const animateRows = () => {
-              if (rowIndex <= 4) {
-                setVisibleRows(rowIndex);
-                rowIndex++;
-                setTimeout(animateRows, 150); // 0.15s between rows - overlaps with 0.8s transition
-              }
-            };
-            animateRows();
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-
-    const currentRef = tableSectionRef.current;
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
-  }, [tableAnimated]);
 
   // Solution Mapping Data
   const solutionMappingHeaders = [
@@ -607,7 +569,7 @@ function App() {
         </Section>
 
         {/* Solution Mapping Section - Light Gray Background */}
-        <Section id="mapping" className="mapping-section" ref={tableSectionRef}>
+        <Section id="mapping" className="mapping-section">
           <div className="page-container">
             <Grid>
             <Column lg={16} md={8} sm={4}>
@@ -631,12 +593,8 @@ function App() {
                         </TableRow>
                       </TableHead>
                       <TableBody>
-                        {rows.map((row, index) => (
-                          <TableRow
-                            {...getRowProps({ row })}
-                            key={row.id}
-                            className={`table-row-fade ${visibleRows >= index + 1 ? 'visible' : ''}`}
-                          >
+                        {rows.map((row) => (
+                          <TableRow {...getRowProps({ row })} key={row.id}>
                             {row.cells.map((cell) => (
                               <TableCell key={cell.id}>{cell.value}</TableCell>
                             ))}
