@@ -712,6 +712,8 @@ section {
       margin: 0 auto 24px auto;
       transition: all 0.4s ease;
       transform: scale(1);
+      position: relative;
+      z-index: 2;
     }
     
     &.active .step-number {
@@ -750,14 +752,14 @@ section {
   
   .flow-connector {
     position: absolute;
-    top: 50%;
-    right: -12px;
+    top: 2rem; // Align with center of step-number (4rem / 2)
+    left: calc(50% + 2rem); // Start from right edge of circle
     width: 0;
-    height: 3px;
+    height: 4px;
     background: linear-gradient(90deg, #0f62fe 0%, #0043ce 100%);
-    transform: translateY(-50%);
-    animation: growLine 0.6s ease forwards;
+    animation: growLine 0.7s ease-in-out forwards;
     z-index: 1;
+    border-radius: 2px;
     
     @include breakpoint-down(md) {
       display: none;
@@ -765,11 +767,13 @@ section {
   }
   
   @keyframes growLine {
-    from {
+    0% {
       width: 0;
+      opacity: 0.5;
     }
-    to {
-      width: 24px;
+    100% {
+      width: calc(100% - 4rem); // Full width minus the circle diameter
+      opacity: 1;
     }
   }
 }
