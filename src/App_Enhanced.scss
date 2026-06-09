@@ -1116,15 +1116,15 @@ section {
   }
   
   .conclusion-statement {
-    margin-top: 48px;
-    padding: 32px;
-    background: #edf5ff;
-    border-left: 4px solid #0f62fe;
-    border-radius: 4px;
+    margin-top: 24px;
+    padding: 24px;
+    background: #f9f9f9;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     
     @include breakpoint-down(md) {
-      margin-top: 32px;
-      padding: 24px;
+      margin-top: 20px;
+      padding: 20px;
     }
     
     p {
@@ -1132,7 +1132,7 @@ section {
       line-height: 1.7;
       color: #161616;
       margin: 0;
-      font-weight: 400;
+      font-weight: 500;
     }
   }
 }
