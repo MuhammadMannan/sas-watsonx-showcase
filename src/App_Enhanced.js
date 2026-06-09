@@ -534,38 +534,34 @@ function App() {
               </Heading>
             </Column>
 
-            <Column lg={4} md={2} sm={4}>
-              <div className={`flow-step ${activeStep >= 1 ? 'active' : ''}`}>
-                <div className="step-number">1</div>
-                <h4>Data Ingestion</h4>
-                <p>Data ingestion and integration using watsonx.data</p>
-              </div>
-              <div className={`flow-connector connector-red ${activeStep >= 2 ? 'animate' : ''}`}></div>
-            </Column>
+            <Column lg={16} md={8} sm={4}>
+              <div className="flow-container">
+                <div className={`flow-step ${activeStep >= 1 ? 'active' : ''}`}>
+                  <div className="step-number">1</div>
+                  <h4>Data Ingestion</h4>
+                  <p>Data ingestion and integration using watsonx.data</p>
+                </div>
+                <div className={`flow-connector connector-red ${activeStep >= 2 ? 'animate' : ''}`}></div>
 
-            <Column lg={4} md={2} sm={4}>
-              <div className={`flow-step ${activeStep >= 2 ? 'active' : ''}`}>
-                <div className="step-number">2</div>
-                <h4>Model Development</h4>
-                <p>Model development and training using watsonx.ai</p>
-              </div>
-              <div className={`flow-connector connector-purple ${activeStep >= 3 ? 'animate' : ''}`}></div>
-            </Column>
+                <div className={`flow-step ${activeStep >= 2 ? 'active' : ''}`}>
+                  <div className="step-number">2</div>
+                  <h4>Model Development</h4>
+                  <p>Model development and training using watsonx.ai</p>
+                </div>
+                <div className={`flow-connector connector-purple ${activeStep >= 3 ? 'animate' : ''}`}></div>
 
-            <Column lg={4} md={2} sm={4}>
-              <div className={`flow-step ${activeStep >= 3 ? 'active' : ''}`}>
-                <div className="step-number">3</div>
-                <h4>Automation</h4>
-                <p>Workflow automation using watsonx Orchestrate</p>
-              </div>
-              <div className={`flow-connector connector-yellow ${activeStep >= 4 ? 'animate' : ''}`}></div>
-            </Column>
+                <div className={`flow-step ${activeStep >= 3 ? 'active' : ''}`}>
+                  <div className="step-number">3</div>
+                  <h4>Automation</h4>
+                  <p>Workflow automation using watsonx Orchestrate</p>
+                </div>
+                <div className={`flow-connector connector-yellow ${activeStep >= 4 ? 'animate' : ''}`}></div>
 
-            <Column lg={4} md={2} sm={4}>
-              <div className={`flow-step ${activeStep >= 4 ? 'active' : ''}`}>
-                <div className="step-number">4</div>
-                <h4>Governance</h4>
-                <p>Monitoring, governance, and compliance using watsonx.governance</p>
+                <div className={`flow-step ${activeStep >= 4 ? 'active' : ''}`}>
+                  <div className="step-number">4</div>
+                  <h4>Governance</h4>
+                  <p>Monitoring, governance, and compliance using watsonx.governance</p>
+                </div>
               </div>
             </Column>
             </Grid>

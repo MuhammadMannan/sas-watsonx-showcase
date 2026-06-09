@@ -676,6 +676,7 @@ section {
 .how-it-works-section {
   background: #ffffff;
   padding: 80px 0;
+  overflow-x: hidden;
   
   @include breakpoint-down(md) {
     padding: 48px 0;
@@ -685,17 +686,30 @@ section {
     max-width: 1056px;
     margin: 0 auto;
     padding: 0 32px;
-    column-gap: 24px;
-    row-gap: 48px;
     
     @include breakpoint-down(md) {
       padding: 0 16px;
     }
   }
   
+  .flow-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+    
+    @include breakpoint-down(md) {
+      flex-direction: column;
+      gap: 32px;
+    }
+  }
+  
   .flow-step {
     text-align: center;
-    padding: 24px 16px;
+    flex: 1;
+    min-width: 0;
     position: relative;
     
     .step-number {
@@ -724,7 +738,7 @@ section {
     }
     
     h4 {
-      font-size: 1.25rem;
+      font-size: 1.125rem;
       font-weight: 600;
       margin-bottom: 12px;
       color: #161616;
@@ -738,7 +752,7 @@ section {
     
     p {
       font-size: 0.875rem;
-      line-height: 1.6;
+      line-height: 1.5;
       color: #525252;
       margin: 0;
       opacity: 0.5;
@@ -751,13 +765,12 @@ section {
   }
   
   .flow-connector {
-    position: absolute;
-    top: 2rem; // Align with center of step-number (4rem / 2)
-    left: calc(50% + 2rem); // Start from right edge of circle
-    width: calc(100% - 4rem); // Full width minus the circle diameter
+    flex-shrink: 0;
+    width: 80px;
     height: 4px;
-    background: #e0e0e0; // Gray background for inactive state
-    z-index: 1;
+    background: #e0e0e0;
+    margin-top: 2rem;
+    position: relative;
     border-radius: 2px;
     overflow: hidden;
     
@@ -783,17 +796,17 @@ section {
     
     // Red connector (1 to 2)
     &.connector-red::before {
-      background: #da1e28; // IBM Red
+      background: #da1e28;
     }
     
     // Purple connector (2 to 3)
     &.connector-purple::before {
-      background: #8a3ffc; // IBM Purple
+      background: #8a3ffc;
     }
     
     // Yellow connector (3 to 4)
     &.connector-yellow::before {
-      background: #f1c21b; // IBM Yellow
+      background: #f1c21b;
     }
   }
 }
