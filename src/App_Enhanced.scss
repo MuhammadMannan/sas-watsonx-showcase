@@ -801,6 +801,26 @@ section {
 }
 
 // ============================================
+// SOLUTION MAPPING SECTION - Light Gray Background
+// ============================================
+
+.mapping-section {
+  // Make table rows white for better contrast against gray background
+  .cds--data-table tbody tr {
+    background-color: #ffffff;
+    
+    &:hover {
+      background-color: #e8e8e8; // Carbon hover state
+    }
+  }
+  
+  // Ensure alternating rows are also white (override Carbon's default)
+  .cds--data-table tbody tr:nth-child(even) {
+    background-color: #ffffff;
+  }
+}
+
+// ============================================
 // MAPPING SECTION - Light Gray Background
 // ============================================
 
